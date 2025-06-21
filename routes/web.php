@@ -19,6 +19,13 @@ Route::get('/about', [HomeController::class, 'about'])->name("home.about");
 Route::get('/products', [ProductController::class, 'index'])->name("product.index");
 Route::get('/products/{id}', [ProductController::class, 'show'])->name("product.show");
 
+
+//cart
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
+Route::get('/cart/delete', 'App\Http\Controllers\CartController@delete')->name("cart.delete");
+Route::post('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+
+
 //
 Route::middleware('admin')->group(
     function () {
